@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">prm392-gp1</string>
+    <string name="title_activity_login">MainActivity</string>
 </resources>
