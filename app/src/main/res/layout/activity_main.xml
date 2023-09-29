@@ -6,13 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/ivWelcome"
+        android:layout_width="393dp"
+        android:layout_height="388dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
+    <Button
+        android:id="@+id/btnToLogin"
+        android:layout_width="159dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="116dp"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivWelcome" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="286dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="52dp"
+        android:gravity="center"
+        android:text="Welcome back,"
+        android:textSize="38sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivWelcome" />
 </androidx.constraintlayout.widget.ConstraintLayout>
