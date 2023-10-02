@@ -7,61 +7,144 @@
     tools:context=".Game">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="10dp"
         android:layout_above="@+id/raceTrack"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-67dp"
         android:layout_marginBottom="-2dp"
         android:background="@drawable/background">
-        <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="70dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="90dp"
-            android:layout_marginRight=""
-            android:background="#C3C3C3"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Your horse" />
-                <ImageView
-                    android:id="@+id/playerHorseIndicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/player_horse_color_indicator" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="match_parent"
-                    android:gravity="left"
-                    android:text="Your bet" />
-
-                <TextView
-                    android:id="@+id/yourBet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="0$"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="-29dp"
             android:src="@drawable/fence" />
+
+        <Button
+            android:id="@+id/btnStartRace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#57C4E5"
+            android:text="Start"
+            android:textColor="#000000"
+            app:cornerRadius="3dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="#D6D055"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="83dp"
+                android:text="Your money:" />
+
+            <TextView
+                android:id="@+id/tvUserMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="83dp"
+                android:textStyle="bold"
+                android:text="200$" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="260dp"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="90dp"
+            android:background="#C3C3C3"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="100dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Your horse" />
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginTop="10dp"
+                    android:text="Your bet" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/playerHorseIndicator"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/player_horse_color_indicator" />
+
+                    <EditText
+                        android:id="@+id/betHorse1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:hint="Bet" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/playerHorseIndicator2"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/player_horse_color_indicator" />
+                    <EditText
+                        android:id="@+id/betHorse2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:hint="Bet" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/playerHorseIndicator3"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/player_horse_color_indicator" />
+                    <EditText
+                        android:id="@+id/betHorse3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:hint="Bet" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/raceTrack"
@@ -77,12 +160,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp">
+
                 <SeekBar
                     android:id="@+id/horse1Track"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:elevation="10dp"
                     android:thumb="@drawable/horse1small" />
             </LinearLayout>
             <LinearLayout
