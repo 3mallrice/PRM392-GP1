@@ -19,7 +19,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="90dp"
-            android:layout_marginRight="80dp"
+            android:layout_marginRight=""
             android:background="#C3C3C3"
             android:orientation="vertical">
             <LinearLayout
