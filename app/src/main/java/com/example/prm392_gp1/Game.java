@@ -24,6 +24,7 @@ public class Game extends AppCompatActivity {
     SeekBar track1, track2, track3;
     int bet1, bet2, bet3, index1, index2, index3 , total;
     boolean checkValue = false;
+    MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,29 +49,32 @@ public class Game extends AppCompatActivity {
                 int three = random.nextInt(5);
                 if (track1.getProgress() >= track1.getMax()){
                     this.cancel();
-                    //mediaPlayer.stop();
+                    mediaPlayer.stop();
                     if (cb1.isChecked()){
-                        total += (bet1 * 2);
+                        total += (bet1 * 1.75);
                     }
                     txtMoney.setText(String.valueOf(total));
+                    MusicPlayer.playAudioFromResource(Game.this, R.raw.successful);
                     Toast.makeText(Game.this,"ONE WIN",Toast.LENGTH_SHORT).show();
                 }
                 if (track2.getProgress() >= track2.getMax()){
                     this.cancel();
-                    //mediaPlayer.stop();
+                    mediaPlayer.stop();
                     if (cb2.isChecked()){
-                        total += (bet2 * 2);
+                        total += (bet2 * 1.75);
                     }
                     txtMoney.setText(String.valueOf(total));
+                    MusicPlayer.playAudioFromResource(Game.this, R.raw.successful);
                     Toast.makeText(Game.this,"TWO WIN",Toast.LENGTH_SHORT).show();
                 }
                 if (track3.getProgress() >= track3.getMax()){
                     this.cancel();
-                    //mediaPlayer.stop();
+                    mediaPlayer.stop();
                     if (cb3.isChecked()){
-                        total += (bet3 * 2);
+                        total += (bet3 * 1.75);
                     }
                     txtMoney.setText(String.valueOf(total));
+                    MusicPlayer.playAudioFromResource(Game.this, R.raw.successful);
                     Toast.makeText(Game.this,"THREE WIN",Toast.LENGTH_SHORT).show();
                 }
                 track1.setProgress(track1.getProgress() + one);
@@ -121,9 +125,9 @@ public class Game extends AppCompatActivity {
                             if ((bet1 + bet2 + bet3) <= total ){
                                 total -= (bet1 + bet2 + bet3);
                                 txtMoney.setText(String.valueOf(total));
-                                //mediaPlayer = MediaPlayer.create(DuaNguaActivity.this,R.raw.rock_it);
+                                mediaPlayer = MediaPlayer.create(Game.this,R.raw.game);
                                 countDownTimer.start();
-                                //mediaPlayer.start();
+                                mediaPlayer.start();
                             }else {
                                 Toast.makeText(Game.this,"Số Tiền Cược Quá Lớn!",Toast.LENGTH_SHORT).show();
                             }
