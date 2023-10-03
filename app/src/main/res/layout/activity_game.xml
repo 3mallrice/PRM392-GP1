@@ -238,8 +238,8 @@
         android:background="#BA9593"
         android:orientation="horizontal">
         <LinearLayout
-            android:layout_width="670dp"
-            android:layout_height="match_parent"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="370dp"
@@ -292,16 +292,22 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_gravity="bottom"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/finish_flag" />
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_gravity="top"
+                android:src="@drawable/finish_flag" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="top"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/finish_flag" />
         </LinearLayout>
     </LinearLayout>
