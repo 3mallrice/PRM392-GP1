@@ -3,6 +3,7 @@ package com.example.prm392_gp1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ public class Lobby extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
 
+        MusicPlayer.playAudioFromResource(Lobby.this, R.raw.waiting);
         btnHorse = (Button) findViewById(R.id.btnHorse);
         btnDog = (Button) findViewById(R.id.btnDog);
         btnDuck = (Button) findViewById(R.id.btnDuck);

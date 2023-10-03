@@ -124,7 +124,7 @@
                         android:layout_height="50dp"
                         android:ems="10"
                         android:hint="bet"
-                        android:inputType="text" />
+                        android:inputType="number" />
 
                     <CheckBox
                         android:id="@+id/cb1"
@@ -147,7 +147,7 @@
                         android:layout_height="50dp"
                         android:ems="10"
                         android:hint="bet"
-                        android:inputType="text" />
+                        android:inputType="number" />
                     <CheckBox
                         android:id="@+id/cb2"
                         android:layout_width="match_parent"
@@ -169,7 +169,7 @@
                         android:layout_height="50dp"
                         android:ems="10"
                         android:hint="bet"
-                        android:inputType="text" />
+                        android:inputType="number" />
 
                     <CheckBox
                         android:id="@+id/cb3"
@@ -242,7 +242,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="370dp"
                 android:layout_height="70dp">
 
                 <SeekBar
@@ -252,13 +252,12 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:elevation="10dp"
-                    android:progress=""
                     android:progressBackgroundTint="#00FFFFFF"
                     android:splitTrack="false"
                     android:thumb="@drawable/horse1small" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="370dp"
                 android:layout_height="70dp">
 
                 <SeekBar
@@ -272,7 +271,7 @@
                     android:thumb="@drawable/horse2small" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="370dp"
                 android:layout_height="70dp">
 
                 <SeekBar
