@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
             if (!checkInput())
                 return;
             else {
-                Intent intent = new Intent(Login.this, Instruction.class);
+                Intent intent = new Intent(Login.this, Lobby.class);
                 MusicPlayer.playAudioFromResource(Login.this, R.raw.successful);
                 startActivity(intent);
                 finish();
