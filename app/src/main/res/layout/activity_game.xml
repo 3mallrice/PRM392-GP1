@@ -238,43 +238,47 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="70dp">
 
                 <SeekBar
                     android:id="@+id/horse1Track"
                     android:layout_width="wrap_content"
-                    android:splitTrack="false"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:elevation="10dp"
+                    android:progress=""
+                    android:progressBackgroundTint="#00FFFFFF"
+                    android:splitTrack="false"
                     android:thumb="@drawable/horse1small" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="70dp">
 
                 <SeekBar
                     android:id="@+id/horse2Track"
                     android:layout_width="wrap_content"
-                    android:splitTrack="false"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:progressBackgroundTint="#00FFFFFF"
+                    android:splitTrack="false"
                     android:thumb="@drawable/horse2small" />
             </LinearLayout>
-
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="70dp">
+
                 <SeekBar
                     android:id="@+id/horse3Track"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:splitTrack="false"
                     android:layout_weight="1"
+                    android:progressBackgroundTint="#00FFFFFF"
+                    android:splitTrack="false"
                     android:thumb="@drawable/horse3small" />
             </LinearLayout>
         </LinearLayout>
