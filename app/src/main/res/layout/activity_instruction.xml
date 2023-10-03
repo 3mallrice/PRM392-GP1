@@ -7,14 +7,15 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="@drawable/background"
-    tools:context=".Instruction">
+    tools:context=".Instruction"
+    tools:ignore="ExtraText">
 
     <ImageView
         android:id="@+id/gameImageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/img" />
+        android:src="@drawable/images" />
 
     <TextView
         android:id="@+id/gameTitleTextView"
@@ -23,10 +24,10 @@
         android:layout_below="@+id/gameImageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Đua Ngựa"
+        android:text="Bet Game"
         android:textAllCaps="true"
-        android:textStyle="bold"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/instructionsTextView"
@@ -35,24 +36,26 @@
         android:layout_below="@+id/gameTitleTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Hướng dẫn chơi game:"
+        android:text="Game Guide"
         android:textStyle="bold"
         android:textSize="30sp" />
+
+    "/>
 
     <TextView
         android:id="@+id/gameInstructionsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructionsTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:textStyle="bold"
-        android:text="1.Lần đầu tạo tài khoản sẽ được cho 200 đồng
-        \n2.Bạn được phép chọn 1 hoặc nhiều con ngựa
-        \n3.Nếu ngựa bạn chọn tới đích trước bạn sẽ thắng
-        \n4.Nếu tài khoản của bạn không đủ thì nạp thêm để chơi nhé"
+        android:layout_marginTop="23dp"
+        android:background="#5C000000"
+        android:text="1. When you start playing, you will have 1000 coins. \n
+                    \n2. You are required to select at least one pet. \n
+                    \n3. If the pet you choose reaches the finish line first, you will win."
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:textColor="	#ff0000"/>
+        android:textStyle="bold"
+        android:padding="10dp"/>
 
     <Button
         android:id="@+id/btnstartGameButton"
@@ -61,6 +64,7 @@
         android:layout_below="@+id/gameInstructionsTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:text="Start"
-        android:textSize="18sp" />
+        android:text="Back"
+        android:textSize="18sp"
+        app:cornerRadius="10sp" />
 </RelativeLayout>

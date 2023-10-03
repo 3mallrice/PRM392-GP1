@@ -9,33 +9,36 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/lobby_logo"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:src="@drawable/lobby_logo" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/lobby_h"/>
+                android:src="@drawable/lobby_h" />
 
             <Button
                 android:id="@+id/btnHorse"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Đua Ngựa"
                 android:layout_gravity="center"
                 android:backgroundTint="#0074e4"
+                android:text="Horse racing"
+                app:cornerRadius="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -47,21 +50,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/lobby_d"/>
+                android:src="@drawable/lobby_d" />
 
             <Button
                 android:id="@+id/btnDuck"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Đua Vịt"
-                android:backgroundTint="#0074e4"
                 android:layout_gravity="center"
+                android:backgroundTint="#0074e4"
+                android:text="Duck racing"
+                app:cornerRadius="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -73,21 +77,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/lobby_dg"/>
+                android:src="@drawable/lobby_dg" />
 
             <Button
                 android:id="@+id/btnDog"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Đua Chó"
-                android:backgroundTint="#0074e4"
                 android:layout_gravity="center"
+                android:backgroundTint="#0074e4"
+                android:text="Dog racing"
+                app:cornerRadius="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -99,25 +104,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/lobby_instruction"/>
+                android:src="@drawable/lobby_instruction" />
 
             <Button
                 android:id="@+id/btnHD"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Hướng dẫn"
-                android:backgroundTint="#0074e4"
                 android:layout_gravity="center"
+                android:backgroundTint="#0074e4"
+                android:text="Instruction"
+                app:cornerRadius="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
         </LinearLayout>
     </LinearLayout>

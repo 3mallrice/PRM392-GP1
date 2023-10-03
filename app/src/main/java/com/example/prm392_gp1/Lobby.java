@@ -3,9 +3,7 @@ package com.example.prm392_gp1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -26,46 +24,41 @@ public class Lobby extends AppCompatActivity {
         btnDuck = (Button) findViewById(R.id.btnDuck);
         btnHD = (Button) findViewById(R.id.btnHD);
         noti = (TextView) findViewById(R.id.Noti);
-        btnHorse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Lobby.this, Game.class);
-                startActivity(intent);
-            }
+        btnHorse.setOnClickListener(view -> {
+            Intent intent = new Intent(Lobby.this, Game.class);
+            intent.putExtra("thumb", "horse");
+            startActivity(intent);
         });
 
-        btnHD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Lobby.this, Instruction.class);
-                startActivity(intent);
-            }
+        btnHD.setOnClickListener(view -> {
+            Intent intent = new Intent(Lobby.this, Instruction.class);
+            startActivity(intent);
         });
 
-        btnDuck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                noti.setVisibility(View.VISIBLE);
-                noti.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        noti.setVisibility(View.INVISIBLE);
-                    }
-                }, 3000);
-            }
+        btnDuck.setOnClickListener(view -> {
+//                noti.setVisibility(View.VISIBLE);
+//                noti.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        noti.setVisibility(View.INVISIBLE);
+//                    }
+//                }, 3000);
+            Intent intent = new Intent(Lobby.this, Game.class);
+            intent.putExtra("thumb", "duck");
+            startActivity(intent);
         });
 
-        btnDog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                noti.setVisibility(View.VISIBLE);
-                noti.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        noti.setVisibility(View.INVISIBLE);
-                    }
-                }, 3000);
-            }
+        btnDog.setOnClickListener(view -> {
+//                noti.setVisibility(View.VISIBLE);
+//                noti.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        noti.setVisibility(View.INVISIBLE);
+//                    }
+//                }, 3000);
+            Intent intent = new Intent(Lobby.this, Game.class);
+            intent.putExtra("thumb", "dog");
+            startActivity(intent);
         });
     }
 }

@@ -32,7 +32,7 @@
             android:text="Start"
             android:textStyle="bold"
             android:textColor="#ffffff"
-            app:cornerRadius="3dp" />
+            app:cornerRadius="10sp" />
 
         <Button
             android:id="@+id/btnReset"
@@ -46,7 +46,7 @@
             android:backgroundTint="#57C4E5"
             android:text="Reset"
             android:textColor="#000000"
-            app:cornerRadius="3dp" />
+            app:cornerRadius="10sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -68,8 +68,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="83dp"
-                android:textStyle="bold"
-                android:text="200$" />
+                android:text="200$"
+                android:textStyle="bold" />
         </LinearLayout>
 
 
@@ -192,7 +192,7 @@
             android:layout_marginEnd="9dp"
             android:backgroundTint="#2E7D32"
             android:text="Back"
-            app:cornerRadius="18px" />
+            app:cornerRadius="10sp" />
 
         <Button
             android:id="@+id/btnInstruction"
@@ -205,7 +205,7 @@
             android:layout_marginEnd="9dp"
             android:backgroundTint="#2E7D32"
             android:text="Instruction"
-            app:cornerRadius="18px" />
+            app:cornerRadius="10sp" />
 
         <TextView
             android:layout_width="wrap_content"
