@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,7 +12,7 @@ public class Lobby extends AppCompatActivity {
     Button btnHorse;
     Button btnDog;
     Button btnDuck;
-    Button btnHD;
+    Button btnHD, btnOut;
     TextView noti;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,13 @@ public class Lobby extends AppCompatActivity {
         btnDuck = (Button) findViewById(R.id.btnDuck);
         btnHD = (Button) findViewById(R.id.btnHD);
         noti = (TextView) findViewById(R.id.Noti);
+        btnOut = (Button) findViewById(R.id.btnLogout);
+
+        btnOut.setOnClickListener(view -> {
+            Intent intent = new Intent(Lobby.this, MainActivity.class);
+            startActivity(intent);
+        });
+
         btnHorse.setOnClickListener(view -> {
             Intent intent = new Intent(Lobby.this, Game.class);
             intent.putExtra("thumb", "horse");

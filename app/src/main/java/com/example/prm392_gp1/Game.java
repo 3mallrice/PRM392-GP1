@@ -1,9 +1,7 @@
 package com.example.prm392_gp1;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
-
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -14,6 +12,10 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.Random;
 
@@ -26,6 +28,8 @@ public class Game extends AppCompatActivity {
     int bet1, bet2, bet3, total;
     boolean checkValue = false;
     MediaPlayer mediaPlayer;
+    double winningsHorse1 = 0, winningsHorse2 = 0, winningsHorse3 = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,48 +66,61 @@ public class Game extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //bet
-        CountDownTimer countDownTimer = new CountDownTimer(60000,700) {
+        // Bet
+        CountDownTimer countDownTimer = new CountDownTimer(60000, 700) {
             @Override
             public void onTick(long l) {
                 Random random = new Random();
                 int one = random.nextInt(10);
                 int two = random.nextInt(10);
                 int three = random.nextInt(10);
-                if (track1.getProgress() >= track1.getMax()){
+                if (track1.getProgress() >= track1.getMax()) {
                     this.cancel();
                     mediaPlayer.stop();
-                    if (cb1.isChecked()){
-                        total += (bet1 * 1.75);
+                    if (cb1.isChecked()) {
+                        winningsHorse1 = bet1 * 1.75;
+                        total += winningsHorse1;
+                    } else {
+                        total -= bet1;
                     }
                     txtMoney.setText(String.valueOf(total));
                     MusicPlayer.playAudioFromResource(Game.this, R.raw.successful);
-                    Toast.makeText(Game.this,"ONE WIN",Toast.LENGTH_SHORT).show();
+                    showResultDialog(winningsHorse1, winningsHorse2, winningsHorse3);
+                    Toast.makeText(Game.this, "1st WINS", Toast.LENGTH_SHORT).show();
                 }
-                if (track2.getProgress() >= track2.getMax()){
+                if (track2.getProgress() >= track2.getMax()) {
                     this.cancel();
                     mediaPlayer.stop();
-                    if (cb2.isChecked()){
-                        total += (bet2 * 1.75);
+                    if (cb2.isChecked()) {
+                        winningsHorse2 = bet2 * 1.75;
+                        total += winningsHorse2;
+                    } else {
+                        total -= bet2;
                     }
                     txtMoney.setText(String.valueOf(total));
                     MusicPlayer.playAudioFromResource(Game.this, R.raw.successful);
-                    Toast.makeText(Game.this,"TWO WIN",Toast.LENGTH_SHORT).show();
+                    showResultDialog(winningsHorse1, winningsHorse2, winningsHorse3);
+                    Toast.makeText(Game.this, "2nd WINS", Toast.LENGTH_SHORT).show();
                 }
-                if (track3.getProgress() >= track3.getMax()){
+                if (track3.getProgress() >= track3.getMax()) {
                     this.cancel();
                     mediaPlayer.stop();
-                    if (cb3.isChecked()){
-                        total += (bet3 * 1.75);
+                    if (cb3.isChecked()) {
+                        winningsHorse3 = bet3 * 1.75;
+                        total += winningsHorse3;
+                    } else {
+                        total -= bet3;
                     }
                     txtMoney.setText(String.valueOf(total));
                     MusicPlayer.playAudioFromResource(Game.this, R.raw.successful);
-                    Toast.makeText(Game.this,"THREE WIN",Toast.LENGTH_SHORT).show();
+                    showResultDialog(winningsHorse1, winningsHorse2, winningsHorse3);
+                    Toast.makeText(Game.this, "3rd WINS", Toast.LENGTH_SHORT).show();
                 }
                 track1.setProgress(track1.getProgress() + one);
                 track2.setProgress(track2.getProgress() + two);
                 track3.setProgress(track3.getProgress() + three);
             }
+
             @Override
             public void onFinish() {
             }
@@ -112,8 +129,10 @@ public class Game extends AppCompatActivity {
             Intent intent = new Intent(Game.this, Lobby.class);
             startActivity(intent);
         });
+
         btnStartRace.setOnClickListener(view -> {
-            if (cb1.isChecked() || cb2.isChecked() || cb3.isChecked()){
+            MusicPlayer.releaseMediaPlayer();
+            if (cb1.isChecked() || cb2.isChecked() || cb3.isChecked()) {
                 if (cb1.isChecked()) {
                     String bet1Text = betHorse1.getText().toString();
                     if (!bet1Text.isEmpty() && bet1Text != null) {
@@ -121,63 +140,62 @@ public class Game extends AppCompatActivity {
                         if (bet1 > 0) {
                             checkValue = true;
                         } else {
-                            Toast.makeText(Game.this, "Tiền cược ô 1 phải lớn hơn 0", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Game.this, "Bet amount for 1st must be greater than 0", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(Game.this, "Hãy chọn tiền cược ô 1", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Game.this, "Please select a bet amount for 1st pet", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                     betHorse1.setText("");
+                    betHorse1.setText("");
                 }
-                if (cb2.isChecked()){
+                if (cb2.isChecked()) {
                     String bet2Text = betHorse2.getText().toString();
                     if (!bet2Text.isEmpty() && bet2Text != null) {
                         bet2 = Integer.parseInt(bet2Text);
                         if (bet2 > 0) {
                             checkValue = true;
                         } else {
-                            Toast.makeText(Game.this, "Tiền cược ô 2 phải lớn hơn 0", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Game.this, "Bet amount for 2nd must be greater than 0", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(Game.this, "Hãy chọn tiền cược ô 2", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Game.this, "Please select a bet amount for 2nd pet", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     betHorse2.setText("");
                 }
-                if (cb3.isChecked()){
+                if (cb3.isChecked()) {
                     String bet3Text = betHorse3.getText().toString();
                     if (!bet3Text.isEmpty() && bet3Text != null) {
                         bet1 = Integer.parseInt(bet3Text);
                         if (bet1 > 0) {
                             checkValue = true;
                         } else {
-                            Toast.makeText(Game.this, "Tiền cược ô 3 phải lớn hơn 0", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Game.this, "Bet amount for 3rd must be greater than 0", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(Game.this, "Hãy chọn tiền cược ô 3", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Game.this, "Please select a bet amount for 3rd pet", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     betHorse3.setText("");
                 }
-                if (checkValue){
-                    if ( total > 0){
-                        if ((bet1 + bet2 + bet3) <= total ){
+                if (checkValue) {
+                    if (total > 0) {
+                        if ((bet1 + bet2 + bet3) <= total) {
                             total -= (bet1 + bet2 + bet3);
                             txtMoney.setText(String.valueOf(total));
-                            mediaPlayer = MediaPlayer.create(Game.this,R.raw.game);
+                            mediaPlayer = MediaPlayer.create(Game.this, R.raw.game);
                             countDownTimer.start();
                             mediaPlayer.start();
-                        }else {
-                            Toast.makeText(Game.this,"Số Tiền Cược Quá Lớn!",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(Game.this, "Bet amount exceeds your total balance!", Toast.LENGTH_SHORT).show();
                         }
-                    }else {
-                        Toast.makeText(Game.this,"Bạn Đã Hết Tiền!",Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(Game.this, "You are out of money!", Toast.LENGTH_SHORT).show();
                     }
                 }
-            }else {
-                Toast.makeText(Game.this,"Chọn con ngựa đặt cược",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(Game.this, "Select at least 1 to bet", Toast.LENGTH_SHORT).show();
             }
-
         });
 
         btnReset.setOnClickListener(view -> {
@@ -199,26 +217,59 @@ public class Game extends AppCompatActivity {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    private void Binding(){
-        btnStartRace = (Button) findViewById(R.id.btnStartRace);
-        btnBack = (Button) findViewById(R.id.btnBack);
-        btnReset = (Button) findViewById(R.id.btnReset);
-        btnInstruction = (Button) findViewById(R.id.btnInstruction);
-        txtMoney = (TextView) findViewById(R.id.txtMoney);
-        cb1 = (CheckBox) findViewById(R.id.cb1);
-        cb2 = (CheckBox) findViewById(R.id.cb2);
-        cb3 = (CheckBox) findViewById(R.id.cb3);
+    private void showResultDialog(double winningsHorse1, double winningsHorse2, double winningsHorse3) {
+        String title = "";
+        String message = "";
 
-        track1 = (SeekBar) findViewById(R.id.horse1Track);
+        if (winningsHorse1 > 0) {
+            title = "Congratulations!";
+            message = "1st horse has won " + winningsHorse1 + " coins!";
+        } else if (winningsHorse2 > 0) {
+            title = "Congratulations!";
+            message = "2nd horse has won " + winningsHorse2 + " coins!";
+        } else if (winningsHorse3 > 0) {
+            title = "Congratulations!";
+            message = "3rd horse has won " + winningsHorse3 + " coins!";
+        } else {
+            title = "Sorry!";
+            message = "You lost the race!";
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setPositiveButton("OK", null);
+        builder.setNegativeButton("Lobby", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Intent intent = new Intent(Game.this, Lobby.class);
+                startActivity(intent);
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+
+    private void Binding() {
+        btnStartRace = findViewById(R.id.btnStartRace);
+        btnBack = findViewById(R.id.btnBack);
+        btnReset = findViewById(R.id.btnReset);
+        btnInstruction = findViewById(R.id.btnInstruction);
+        txtMoney = findViewById(R.id.txtMoney);
+        cb1 = findViewById(R.id.cb1);
+        cb2 = findViewById(R.id.cb2);
+        cb3 = findViewById(R.id.cb3);
+
+        track1 = findViewById(R.id.horse1Track);
         track1.setEnabled(false);
-        track2 = (SeekBar) findViewById(R.id.horse2Track);
+        track2 = findViewById(R.id.horse2Track);
         track2.setEnabled(false);
-        track3 = (SeekBar) findViewById(R.id.horse3Track);
+        track3 = findViewById(R.id.horse3Track);
         track3.setEnabled(false);
 
-        betHorse1 = (EditText) findViewById(R.id.betHorse1);
-        betHorse2 = (EditText) findViewById(R.id.betHorse2);
-        betHorse3 = (EditText) findViewById(R.id.betHorse3);
+        betHorse1 = findViewById(R.id.betHorse1);
+        betHorse2 = findViewById(R.id.betHorse2);
+        betHorse3 = findViewById(R.id.betHorse3);
         total = Integer.parseInt(txtMoney.getText().toString());
     }
 }
