@@ -7,6 +7,7 @@
     tools:context=".Lobby">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -125,6 +126,33 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="277dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="47dp"
+                android:layout_gravity="center"
+                android:src="@drawable/out" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="#00838F"
+                android:text="Logout"
+                app:cornerRadius="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <TextView
@@ -143,4 +171,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.353" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
