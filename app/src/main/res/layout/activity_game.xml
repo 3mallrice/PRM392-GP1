@@ -130,6 +130,8 @@
                         android:id="@+id/cb1"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:buttonTint="#274156"
+
                         android:layout_marginBottom="10dp"/>
                 </LinearLayout>
 
@@ -146,11 +148,12 @@
                         android:ems="10"
                         android:hint="bet"
                         android:inputType="text" />
-
                     <CheckBox
                         android:id="@+id/cb2"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:buttonTint="#4ECDC4"
+
                         android:layout_marginBottom="10dp"/>
                 </LinearLayout>
 
@@ -172,6 +175,7 @@
                         android:id="@+id/cb3"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:buttonTint="#EB5160"
                         android:layout_marginBottom="10dp" />
                 </LinearLayout>
             </LinearLayout>
