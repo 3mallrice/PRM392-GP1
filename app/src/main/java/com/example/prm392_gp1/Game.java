@@ -44,9 +44,9 @@ public class Game extends AppCompatActivity {
             @Override
             public void onTick(long l) {
                 Random random = new Random();
-                int one = random.nextInt(5);
-                int two = random.nextInt(5);
-                int three = random.nextInt(5);
+                int one = random.nextInt(10);
+                int two = random.nextInt(10);
+                int three = random.nextInt(10);
                 if (track1.getProgress() >= track1.getMax()){
                     this.cancel();
                     mediaPlayer.stop();
@@ -97,28 +97,49 @@ public class Game extends AppCompatActivity {
             public void onClick(View view) {
                 if (cb1.isChecked() || cb2.isChecked() || cb3.isChecked()){
                     if (cb1.isChecked()) {
-                        if (!betHorse1.getText().toString().isEmpty()) {
-                            bet1 = Integer.parseInt(betHorse1.getText().toString());
-                            checkValue = true;
+                        String bet1Text = betHorse1.getText().toString();
+                        if (!bet1Text.isEmpty() && bet1Text != null) {
+                            bet1 = Integer.parseInt(bet1Text);
+                            if (bet1 > 0) {
+                                checkValue = true;
+                            } else {
+                                Toast.makeText(Game.this, "Tiền cược ô 1 phải lớn hơn 0", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
-                            Toast.makeText(Game.this, "Hay chọn tiền cược ô 1", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Game.this, "Hãy chọn tiền cược ô 1", Toast.LENGTH_SHORT).show();
                         }
+                    } else {
+                         betHorse1.setText("");
                     }
                     if (cb2.isChecked()){
-                        if (!betHorse2.getText().toString().isEmpty()){
-                            bet2 = Integer.parseInt(betHorse2.getText().toString());
-                            checkValue = true;
-                        }else {
-                            Toast.makeText(Game.this,"Hay chọn tiền cược ô 2",Toast.LENGTH_SHORT).show();
+                        String bet2Text = betHorse2.getText().toString();
+                        if (!bet2Text.isEmpty() && bet2Text != null) {
+                            bet2 = Integer.parseInt(bet2Text);
+                            if (bet2 > 0) {
+                                checkValue = true;
+                            } else {
+                                Toast.makeText(Game.this, "Tiền cược ô 2 phải lớn hơn 0", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(Game.this, "Hãy chọn tiền cược ô 2", Toast.LENGTH_SHORT).show();
                         }
+                    } else {
+                        betHorse2.setText("");
                     }
                     if (cb3.isChecked()){
-                        if (!betHorse3.getText().toString().isEmpty()){
-                            bet3 = Integer.parseInt(betHorse3.getText().toString());
-                            checkValue = true;
-                        }else {
-                            Toast.makeText(Game.this,"Hay chọn tiền cược ô 3",Toast.LENGTH_SHORT).show();
+                        String bet3Text = betHorse3.getText().toString();
+                        if (!bet3Text.isEmpty() && bet3Text != null) {
+                            bet1 = Integer.parseInt(bet3Text);
+                            if (bet1 > 0) {
+                                checkValue = true;
+                            } else {
+                                Toast.makeText(Game.this, "Tiền cược ô 3 phải lớn hơn 0", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(Game.this, "Hãy chọn tiền cược ô 3", Toast.LENGTH_SHORT).show();
                         }
+                    } else {
+                        betHorse3.setText("");
                     }
                     if (checkValue){
                         if ( total > 0){
@@ -145,6 +166,10 @@ public class Game extends AppCompatActivity {
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                countDownTimer.cancel();
+                if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                }
                 track1.setProgress(0);
                 track2.setProgress(0);
                 track3.setProgress(0);
