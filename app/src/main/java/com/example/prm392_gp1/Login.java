@@ -8,12 +8,15 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
 
     ImageView ivLogin;
     EditText etUsername, etPassword;
     Button btnLogin;
+    private final String nameUser = "8xbet";
+    private final String passUser = "8x";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +31,16 @@ public class Login extends AppCompatActivity {
             if (!checkInput())
                 return;
             else {
-                Intent intent = new Intent(Login.this, Lobby.class);
-                MusicPlayer.playAudioFromResource(Login.this, R.raw.successful);
-                startActivity(intent);
-                finish();
+                if (etUsername.getText().toString().equalsIgnoreCase(nameUser) && etPassword.getText().toString().equalsIgnoreCase(passUser)){
+                    Intent intent = new Intent(Login.this, Lobby.class);
+                    MusicPlayer.playAudioFromResource(Login.this, R.raw.successful);
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+                    Toast toast=Toast.makeText(Login.this,"Invalid username or password",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
     }
@@ -44,10 +53,13 @@ public class Login extends AppCompatActivity {
 
     private boolean checkInput(){
         // user, password
-        if(TextUtils.isEmpty(etUsername.getText().toString())
-                || TextUtils.isEmpty(etPassword.getText().toString())){
-            String REQUIRE = "Require";
+        String REQUIRE = "Require";
+        if(TextUtils.isEmpty(etUsername.getText().toString())) {
             etUsername.setError(REQUIRE);
+            return false;
+        }
+        if(TextUtils.isEmpty(etPassword.getText().toString())) {
+            etPassword.setError(REQUIRE);
             return false;
         }
         return true;
