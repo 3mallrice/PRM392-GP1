@@ -86,7 +86,7 @@ public class Game extends AppCompatActivity {
                     txtMoney.setText(String.valueOf(total));
                     MusicPlayer.playAudioFromResource(Game.this, R.raw.successful);
                     showResultDialog(winningsHorse1, winningsHorse2, winningsHorse3);
-                    Toast.makeText(Game.this, "1st WINS", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Game.this, "The 1st WINS", Toast.LENGTH_SHORT).show();
                 }
                 if (track2.getProgress() >= track2.getMax()) {
                     this.cancel();
@@ -100,7 +100,7 @@ public class Game extends AppCompatActivity {
                     txtMoney.setText(String.valueOf(total));
                     MusicPlayer.playAudioFromResource(Game.this, R.raw.successful);
                     showResultDialog(winningsHorse1, winningsHorse2, winningsHorse3);
-                    Toast.makeText(Game.this, "2nd WINS", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Game.this, "The 2nd WINS", Toast.LENGTH_SHORT).show();
                 }
                 if (track3.getProgress() >= track3.getMax()) {
                     this.cancel();
@@ -114,7 +114,7 @@ public class Game extends AppCompatActivity {
                     txtMoney.setText(String.valueOf(total));
                     MusicPlayer.playAudioFromResource(Game.this, R.raw.successful);
                     showResultDialog(winningsHorse1, winningsHorse2, winningsHorse3);
-                    Toast.makeText(Game.this, "3rd WINS", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Game.this, "The 3rd WINS", Toast.LENGTH_SHORT).show();
                 }
                 track1.setProgress(track1.getProgress() + one);
                 track2.setProgress(track2.getProgress() + two);
@@ -140,10 +140,11 @@ public class Game extends AppCompatActivity {
                         if (bet1 > 0) {
                             checkValue = true;
                         } else {
-                            Toast.makeText(Game.this, "Bet amount for 1st must be greater than 0", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Game.this, "Bet amount for the 1st must be greater than 0", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(Game.this, "Please select a bet amount for 1st pet", Toast.LENGTH_SHORT).show();
+                        cb1.setChecked(false);
+                        Toast.makeText(Game.this, "Please select a bet amount for the 1st pet", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     betHorse1.setText("");
@@ -155,10 +156,11 @@ public class Game extends AppCompatActivity {
                         if (bet2 > 0) {
                             checkValue = true;
                         } else {
-                            Toast.makeText(Game.this, "Bet amount for 2nd must be greater than 0", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Game.this, "Bet amount for the 2nd must be greater than 0", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(Game.this, "Please select a bet amount for 2nd pet", Toast.LENGTH_SHORT).show();
+                        cb2.setChecked(false);
+                        Toast.makeText(Game.this, "Please select a bet amount for the 2nd pet", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     betHorse2.setText("");
@@ -170,10 +172,11 @@ public class Game extends AppCompatActivity {
                         if (bet1 > 0) {
                             checkValue = true;
                         } else {
-                            Toast.makeText(Game.this, "Bet amount for 3rd must be greater than 0", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Game.this, "Bet amount for the 3rd must be greater than 0", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(Game.this, "Please select a bet amount for 3rd pet", Toast.LENGTH_SHORT).show();
+                        cb3.setChecked(false);
+                        Toast.makeText(Game.this, "Please select a bet amount for the 3rd pet", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     betHorse3.setText("");
@@ -190,11 +193,11 @@ public class Game extends AppCompatActivity {
                             Toast.makeText(Game.this, "Bet amount exceeds your total balance!", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(Game.this, "You are out of money!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Game.this, "You are out of coin!", Toast.LENGTH_SHORT).show();
                     }
                 }
             } else {
-                Toast.makeText(Game.this, "Select at least 1 to bet", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Game.this, "Select at least 1 pet to bet", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -223,13 +226,13 @@ public class Game extends AppCompatActivity {
 
         if (winningsHorse1 > 0) {
             title = "Congratulations!";
-            message = "1st horse has won " + winningsHorse1 + " coins!";
+            message = "The 1st horse has won";
         } else if (winningsHorse2 > 0) {
             title = "Congratulations!";
-            message = "2nd horse has won " + winningsHorse2 + " coins!";
+            message = "The 2nd horse has won";
         } else if (winningsHorse3 > 0) {
             title = "Congratulations!";
-            message = "3rd horse has won " + winningsHorse3 + " coins!";
+            message = "The 3rd horse has won";
         } else {
             title = "Sorry!";
             message = "You lost the race!";
